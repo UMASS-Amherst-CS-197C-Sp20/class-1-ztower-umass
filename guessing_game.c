@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
-int main(void) {
+int main(int argc, char** argv) {
 	/*
 		TODO:
 		change this guessing game to make it accept command line arguement
@@ -10,9 +12,16 @@ int main(void) {
 		Google rand() and srand()
 	*/
 	//////////Your code here//////////
-	int secret = 77;
-
+	int seed 	= atoi(argv[1]); // convert first argument to integer seed 
+	int lower	= atoi(argv[2]);
+	int upper	= atoi(argv[3]);
+	srand(seed);
+	int randNum = rand();
+	int randNumDigits = (int) floor(log(randNum) / log(10)) + 1;
+	int secret = lower + (int) (pow(10, -1 * randNumDigits) * randNum * (upper - lower));
+	printf("%d\n", secret);
 	//////////End of the code/////////
+
 
 	printf("Welcome to my guessing game!\n");
 	while(true) {

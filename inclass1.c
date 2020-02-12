@@ -5,6 +5,7 @@
 
 void func(int i);
 void func1(int* i);
+void print_string(char* c);
 
 int main(int argc, char** argv){
 	printf("---Lets see the size of the data types---\n");
@@ -37,6 +38,10 @@ int main(int argc, char** argv){
 	int type_int = 0;
 	long type_long = 0;
 	printf("size of int+long: %lu\n", sizeof(type_int+type_long));
+
+	// my code
+	size_t type_size_t = sizeof(sizeof(type_int));
+	printf("size of size_t for type int: %d", type_size_t);
 
 	//////////End of the code/////////
 	printf("#####student code end#####\n");
@@ -81,6 +86,11 @@ int main(int argc, char** argv){
 	*/
 	printf("#####student code start#####\n");
     //////////Your code here//////////
+	printf("INT + 1		:	%ld\n", (long) INT_MAX + 1L);
+	printf("UINT_MAX + 1	:	%ld\n",(long) UINT_MAX + 1L);
+	printf("LONG_MAX + 1	:	%lld\n",(long long) LONG_MAX + 1L);
+	printf("FLT_MAX + 1	:	%g\n",(double) FLT_MAX + 1);
+	printf("FLT_MAX + 1000	:	%g\n",(double) FLT_MAX + 1000);
 
 	//////////End of the code/////////
 	printf("#####student code end#####\n");
@@ -113,8 +123,7 @@ int main(int argc, char** argv){
 	printf("Program Name Is: %s",argv[0]);
     if(argc==1){
     	printf("\nNo Extra Command Line Argument Passed Other Than Program Name\n");
-        return 0;
-    }
+     }
     if(argc>=2)
     {
         printf("\nNumber Of Arguments Passed: %d",argc);
@@ -124,8 +133,8 @@ int main(int argc, char** argv){
     }
 
     //TODO: uncommend below code after complete print_string fucntion
-    //print_string(s1);
-    //print_string(s2);
+    print_string(s1);
+    print_string(s2);
 
     //exit status for the OS, 0 means no error.
     //It is different than the C true/false value
@@ -140,6 +149,9 @@ void func1(int* i){
 	(*i)++;
 }
 
+void print_string(char *c) {
+	printf("%s\n", c);
+}
 /*
 	TODO:
 	Add a function that name as "print_string", which takes a string
